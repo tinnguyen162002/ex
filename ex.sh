@@ -1,8 +1,20 @@
 #!/bin/bash
-sudo apt update
+exists()
+{
+  command -v "$1" >/dev/null 2>&1
+}
+if exists curl; then
+echo ''
+else
+  sudo apt update && sudo apt install curl -y < "/dev/null"
+fi
+bash_profile=$HOME/.bash_profile
+if [ -f "$bash_profile" ]; then
+    . $HOME/.bash_profile
+fi
+sleep 1 && curl -s https://raw.githubusercontent.com/tinnguyen162002/logo/main/logo.sh | bash && sleep 1
 
-sudo apt install
-
+echo -e '\n\e[42mInstall Docker\e[0m\n' && sleep 1
 sudo apt install -y ca-certificates curl gnupg lsb-release
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -14,22 +26,18 @@ sudo apt-get update
 sudo apt install docker-ce docker-ce-cli containerd.io -y
 
 sudo usermod -aG docker $USER
+echo -e '\n\e[42mInstall ZIP\e[0m\n' && sleep 1
 
-newgrp docker
+sudo apt install unzip
+echo -e '\n\e[42mInstall exdore\e[0m\n' && sleep 1
 
-docker version
-
-apt install unzip
 wget https://github.com/exorde-labs/ExordeModuleCLI/archive/refs/heads/main.zip \
 --output-document=ExordeModuleCLI.zip
-#выкачиваем репозиторий проекта
-
+cd $HOME
 unzip ExordeModuleCLI.zip \
 && rm ExordeModuleCLI.zip \
 && mv ExordeModuleCLI-main ExordeModuleCLI
-
 cd ExordeModuleCLI
-#переходим в папку ExordeModuleCLI
 
 docker build -t exorde-cli:latest .
 
