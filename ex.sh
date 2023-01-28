@@ -52,9 +52,5 @@ docker run -d --restart unless-stopped --pull always --name tinnn3 exordelabs/ex
 docker run -d --restart unless-stopped --pull always --name tinnn4 exordelabs/exorde-cli -m 0x9183f2Fe0dC2d3a712F18235e758e7EdFcb44f9f -l 4
 
 
-docker run -d --restart unless-stopped --pull always --name tinnn5 exordelabs/exorde-cli -m 0x9183f2Fe0dC2d3a712F18235e758e7EdFcb44f9f -l 4
-
-docker run -d --restart unless-stopped --pull always --name tinnn6 exordelabs/exorde-cli -m 0x9183f2Fe0dC2d3a712F18235e758e7EdFcb44f9f -l 4
 
 
-docker run -d --restart unless-stopped --pull always --name tinnn7 exordelabs/exorde-cli -m 0x9183f2Fe0dC2d3a712F18235e758e7EdFcb44f9f -l 4
