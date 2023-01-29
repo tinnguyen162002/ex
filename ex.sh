@@ -15,31 +15,7 @@ fi
 sleep 1 && curl -s https://raw.githubusercontent.com/tinnguyen162002/logo/main/logo.sh | bash && sleep 1
 
 echo -e '\n\e[42mInstall Docker\e[0m\n' && sleep 1
-sudo apt install -y ca-certificates curl gnupg lsb-release
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-sudo apt-get update
-
-sudo apt install docker-ce docker-ce-cli containerd.io -y
-
-sudo usermod -aG docker $USER
-echo -e '\n\e[42mInstall ZIP\e[0m\n' && sleep 1
-
-sudo apt install unzip
-echo -e '\n\e[42mInstall exdore\e[0m\n' && sleep 1
-
-wget https://github.com/exorde-labs/ExordeModuleCLI/archive/refs/heads/main.zip \
---output-document=ExordeModuleCLI.zip
-cd $HOME
-unzip ExordeModuleCLI.zip \
-&& rm ExordeModuleCLI.zip \
-&& mv ExordeModuleCLI-main ExordeModuleCLI
-cd ExordeModuleCLI
-
-docker build -t exorde-cli:latest .
+sudo apt install docker.io
 
 docker run -d --restart unless-stopped --pull always --name tinnn exordelabs/exorde-cli -m 0x9183f2Fe0dC2d3a712F18235e758e7EdFcb44f9f -l 4
 
