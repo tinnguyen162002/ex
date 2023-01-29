@@ -15,7 +15,7 @@ fi
 sleep 1 && curl -s https://raw.githubusercontent.com/tinnguyen162002/logo/main/logo.sh | bash && sleep 1
 
 echo -e '\n\e[42mInstall Docker\e[0m\n' && sleep 1
-sudo apt install docker.io
+sudo apt install docker.io -y
 
 docker run -d --restart unless-stopped --pull always --name tinnn exordelabs/exorde-cli -m 0x9183f2Fe0dC2d3a712F18235e758e7EdFcb44f9f -l 4
 
